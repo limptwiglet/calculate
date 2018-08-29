@@ -2,7 +2,7 @@
   <div class="calculator">
     <div class="calculator__value">{{ input.join(' ') }}</div>
     <main class="calculator__numbers">
-      <CalButton @clicked="clicked" value="C" class="calculator__clear" />
+      <CalButton @clicked="clear" value="C" class="calculator__clear" />
       <CalButton @clicked="clicked" value="7" />
       <CalButton @clicked="clicked" value="8" />
       <CalButton @clicked="clicked" value="9" />
@@ -40,6 +40,10 @@ export default {
     };
   },
   methods: {
+    clear() {
+      this.input = ['0'];
+    },
+
     clicked(value) {
       if (value === '=') {
         this.input = [calculate(this.input.join(' '))];

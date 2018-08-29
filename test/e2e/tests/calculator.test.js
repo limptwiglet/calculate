@@ -47,6 +47,18 @@ describe('Calculator', function() {
     calculator.value('0.12');
   });
 
+  it('should clear values previously entered', function() {
+    calculator.enter('2 + 10 / 2');
+    calculator.value('2 + 10 / 2');
+
+    calculator.clear();
+
+    calculator.value('0');
+
+    calculator.enter('2 + 10 / 2 =');
+    calculator.value('7');
+  });
+
   describe('addition', function() {
     it('should render equation', function() {
       calculator.button('1').click();
@@ -149,6 +161,10 @@ class Calculator {
         expect($v.text()).to.equal(value.toString());
       }
     });
+  }
+
+  clear() {
+    this.button('C').click();
   }
 
   enter(equation) {
