@@ -139,6 +139,9 @@ function calculate(str) {
       padding: 1rem 2rem
 
       &:focus
+        outline: none
+
+      &:active
         background: darken(@background, 10%)
         outline: none
 
@@ -152,12 +155,12 @@ function calculate(str) {
     &__operators
       display: grid
 
-      .calculator__button
+      & ^[0]__button
         background-color: orange
         color: #FFF
         border-right: none
 
-        &:focus
+        &:active
           background-color: darken(orange, 10%)
 
     &__value
