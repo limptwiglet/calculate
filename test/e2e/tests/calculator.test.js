@@ -2,7 +2,7 @@ describe('Calculator', function() {
   let calculator;
 
   beforeEach(function() {
-    cy.visit('http://localhost:1234/');
+    cy.visit('http://localhost:4567/');
 
     calculator = new Calculator(cy);
   });

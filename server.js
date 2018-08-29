@@ -2,9 +2,7 @@
 
 var express = require("express"),
     app = express(),
-    port = parseInt(process.env.PORT, 10) || 4567,
-    publicDir = process.argv[2] || __dirname + '/dist',
-    path = require('path');
+    port = parseInt(process.env.PORT, 10) || 4567;
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/dist/index.html');

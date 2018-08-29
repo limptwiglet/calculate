@@ -2,25 +2,25 @@
   <div class="calculator">
     <div class="calculator__value">{{ input.join(' ') }}</div>
     <main class="calculator__numbers">
-      <CalButton @clicked="clear" value="C" class="calculator__clear" />
-      <CalButton @clicked="clicked" value="7" />
-      <CalButton @clicked="clicked" value="8" />
-      <CalButton @clicked="clicked" value="9" />
-      <CalButton @clicked="clicked" value="4" />
-      <CalButton @clicked="clicked" value="5" />
-      <CalButton @clicked="clicked" value="6" />
-      <CalButton @clicked="clicked" value="3" />
-      <CalButton @clicked="clicked" value="2" />
-      <CalButton @clicked="clicked" value="1" />
-      <CalButton @clicked="clicked" value="0" class="calculator__zero" />
-      <CalButton @clicked="clicked" value="." />
+      <CalButton @clicked="clear" value="C" class="calculator__clear"></CalButton>
+      <CalButton @clicked="clicked" value="7"></CalButton>
+      <CalButton @clicked="clicked" value="8"></CalButton>
+      <CalButton @clicked="clicked" value="9"></CalButton>
+      <CalButton @clicked="clicked" value="4"></CalButton>
+      <CalButton @clicked="clicked" value="5"></CalButton>
+      <CalButton @clicked="clicked" value="6"></CalButton>
+      <CalButton @clicked="clicked" value="3"></CalButton>
+      <CalButton @clicked="clicked" value="2"></CalButton>
+      <CalButton @clicked="clicked" value="1"></CalButton>
+      <CalButton @clicked="clicked" value="0" class="calculator__zero"></CalButton>
+      <CalButton @clicked="clicked" value="."></CalButton>
     </main>
     <aside class="calculator__operators">
-      <CalButton @clicked="clicked" value="+" />
-      <CalButton @clicked="clicked" value="-" />
-      <CalButton @clicked="clicked" value="/" />
-      <CalButton @clicked="clicked" value="*" />
-      <CalButton @clicked="clicked" value="=" />
+      <CalButton @clicked="clicked" value="+"></CalButton>
+      <CalButton @clicked="clicked" value="-"></CalButton>
+      <CalButton @clicked="clicked" value="/"></CalButton>
+      <CalButton @clicked="clicked" value="*"></CalButton>
+      <CalButton @clicked="clicked" value="="></CalButton>
     </aside>
   </div>
 </template>

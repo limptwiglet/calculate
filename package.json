@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "npx parcel ./src/index.html",
-    "test": "npm run lint && npm run test:unit",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "test:unit": "npx jest --config test/unit/jest.config.js",
     "test:e2e": "npm run prod:build && npx node-while -s ./server.js -r \"npx cypress run\"",
     "lint": "npx eslint .",
