@@ -1,0 +1,14 @@
+{
+  "parserOptions": { "ecmaVersion": 6 },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "globals": {
+    "expect": true,
+    "describe": true,
+    "test": true,
+    "cy": true,
+    "it": true,
+    "beforeEach": true
+  }
+}
