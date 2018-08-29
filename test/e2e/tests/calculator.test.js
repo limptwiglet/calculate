@@ -60,24 +60,40 @@ describe('Calculator', function() {
     });
 
     it('should be possible to add two numbers', function() {
-      calculator.button('1').click();
-      calculator.button('+').click();
-      calculator.button('1').click();
-      calculator.button('=').click();
+      calculator.enter('1 + 1 =');
 
       calculator.value('2');
     });
 
     it('should be possible to add decimals', function() {
-      calculator.button('.').click();
-      calculator.button('1').click();
-      calculator.button('2').click();
-      calculator.button('+').click();
-      calculator.button('.').click();
-      calculator.button('2').click();
-      calculator.button('=').click();
+      calculator.enter('0.12 + 0.2 =');
 
       calculator.value('0.32');
+    });
+  });
+
+  describe('multiplication', function() {
+    it('should render equation', function() {
+      calculator.button('1').click();
+      calculator.value('1');
+
+      calculator.button('*').click();
+      calculator.value('1 * 0');
+
+      calculator.button('1').click();
+      calculator.value('1 * 1');
+    });
+
+    it('should be possible to multiply two numbers', function() {
+      calculator.enter('2 * 4 =');
+
+      calculator.value('8');
+    });
+
+    it('should correctly multiply from right to left', function() {
+      calculator.enter('2 * 4 * 3 =');
+
+      calculator.value('24');
     });
   });
 });
@@ -94,6 +110,10 @@ class Calculator {
         expect($v.text()).to.equal(value.toString());
       }
     });
+  }
+
+  enter(equation) {
+    equation.split(/(?! )/).map(s => s.trim()).forEach(p => this.button(p).click());
   }
 
   button(text) {

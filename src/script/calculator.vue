@@ -68,6 +68,11 @@ function calculate(str) {
 
     if (!isNaN(num)) {
       parsed.push(num);
+    } else {
+      if (p === '*') {
+        let prev = parsed.pop();
+        parsed.push(nums[--i] * prev);
+      }
     }
   }
 
