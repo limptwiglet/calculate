@@ -31,6 +31,55 @@ describe('Calculator', function() {
 
     calculator.value('12');
   });
+
+  it('should be possible to enter a decimal values', function() {
+    calculator.button('.').click();
+    calculator.button('1').click();
+
+    calculator.value('0.1');
+
+    calculator.button('.').click();
+
+    calculator.value('0.1');
+
+    calculator.button('2').click();
+
+    calculator.value('0.12');
+  });
+
+  describe('addition', function() {
+    it('should render equation', function() {
+      calculator.button('1').click();
+      calculator.value('1');
+
+      calculator.button('+').click();
+      calculator.value('1 + 0');
+
+      calculator.button('1').click();
+      calculator.value('1 + 1');
+    });
+
+    it('should be possible to add two numbers', function() {
+      calculator.button('1').click();
+      calculator.button('+').click();
+      calculator.button('1').click();
+      calculator.button('=').click();
+
+      calculator.value('2');
+    });
+
+    it('should be possible to add decimals', function() {
+      calculator.button('.').click();
+      calculator.button('1').click();
+      calculator.button('2').click();
+      calculator.button('+').click();
+      calculator.button('.').click();
+      calculator.button('2').click();
+      calculator.button('=').click();
+
+      calculator.value('0.32');
+    });
+  });
 });
 
 

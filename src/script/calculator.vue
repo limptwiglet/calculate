@@ -32,17 +32,47 @@ export default {
   methods: {
     clicked(value) {
       if (value === '=') {
-        // console.log(calculate(this.input.join(' ')));
+        this.input = [calculate(this.input.join(' '))];
       } else if (['+', '-', '/', '*'].includes(value)) {
         this.input.push(value);
         this.input.push('0');
       } else {
         let current = this.input.pop();
 
+        if (value === '.') {
+          if (current.indexOf('.') === -1) {
+            current+= value;
+          }
+        } else if (current === '0' && value !== '0') {
+          current = value;
+        } else if (current !== '0') {
+          current += value;
+        }
+
         this.input.push(current);
       }
     }
   }
+}
+
+function calculate(str) {
+  let result = 0;
+  let parts = str.split(' ');
+  let nums = parts.map(parseFloat);
+
+  let parsed = [];
+
+  for (var i = parts.length-1; i >= 0; i--) {
+    let p = parts[i];
+    let num = nums[i];
+
+    if (!isNaN(num)) {
+      parsed.push(num);
+    }
+  }
+
+  result = parsed.reduce((n, a) => n + a, 0);
+  return result;
 }
 </script>
 
