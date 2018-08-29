@@ -82,6 +82,11 @@ function calculate(str) {
       if (p === '*') {
         let prev = parsed.pop();
         parsed.push(nums[--i] * prev);
+      } else if (p === '/') {
+        let prev = parsed.pop();
+        parsed.push(nums[--i] / prev);
+      } else if (p === '-') {
+        parsed.push(0 - parsed.pop());
       }
     }
   }
@@ -109,6 +114,8 @@ function calculate(str) {
     &__value
       text-align: right
       padding: 1rem 3rem
+      background: #222
+      color: #EEE
 
     &__numbers
       display: grid
@@ -128,7 +135,7 @@ function calculate(str) {
       padding: 1rem 2rem
 
       &:focus
-        background: #DFDFDF
+        background: darken(@background, 10%)
         outline: none
 
     &__clear
@@ -144,6 +151,10 @@ function calculate(str) {
       .calculator__button
         background-color: orange
         color: #FFF
+        border-right: none
+
+        &:focus
+          background-color: darken(orange, 10%)
 
     &__value
       grid-column-end: span 4

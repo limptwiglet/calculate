@@ -72,6 +72,31 @@ describe('Calculator', function() {
     });
   });
 
+  describe('subtraction', function() {
+    it('should render equation', function() {
+      calculator.button('1').click();
+      calculator.value('1');
+
+      calculator.button('-').click();
+      calculator.value('1 - 0');
+
+      calculator.button('1').click();
+      calculator.value('1 - 1');
+    });
+
+    it('should be possible subtract two numbers', function() {
+      calculator.enter('2 - 1 =');
+
+      calculator.value('1');
+    });
+
+    it('should be possible subtract three numbers', function() {
+      calculator.enter('2 - 10 - 9 =');
+
+      calculator.value('-17');
+    });
+  });
+
   describe('multiplication', function() {
     it('should render equation', function() {
       calculator.button('1').click();
@@ -94,6 +119,20 @@ describe('Calculator', function() {
       calculator.enter('2 * 4 * 3 =');
 
       calculator.value('24');
+    });
+  });
+
+  describe('division', function() {
+    it('should be possible to divide two numbers', function() {
+      calculator.enter('4 / 2 =');
+
+      calculator.value('2');
+    });
+
+    it('should be possible to divide three numbers', function() {
+      calculator.enter('16 / 8 / 4 =');
+
+      calculator.value('8');
     });
   });
 });
